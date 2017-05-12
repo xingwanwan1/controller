@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.input{
+			width:150px;
+			height: 50px;
+			border: 1px solid #ccc;
+		}
+		span{
+			display: inline-block;
+			width: 50px;
+			text-align: center;
+			line-height: 50px;
+			height: 50px;
+			float: left;
+
+		}
+		em{
+			width: 48px;
+			display: inline-block;
+			text-align: center;
+			line-height: 50px;
+			border: 1px solid #ccc;
+			border-top:none;
+			border-bottom: none; 
+			height: 50px;
+			float: left;
+		}
+	</style>
+</head>
+<body ng-app="app" >
+
+	<div ng-controller="ctr">
+		<div class="input"><span ng-click="jian()">-</span><em>{{count}}</em><span ng-click="add()">+</span></div>
+		<div><p>单件：{{price}}</p><p>总计：{{sort}}</p></div>
+	</div>
+	<script src="angular.js"></script>
+	<script>
+		var app=angular.module("app",[]);
+		app.controller("ctr",function($scope){
+			$scope.count=1;
+			$scope.price=68
+			$scope.jian=function(){
+				$scope.count--
+				if($scope.count<1){
+					$scope.count=1
+				}
+				scopes()
+			}
+			$scope.add=function(){
+				$scope.count++
+				scopes()
+			}
+			function scopes(){
+				$scope.sort=$scope.price*$scope.count
+			}
+		})
+
+	</script>
+</body>
+</html>
